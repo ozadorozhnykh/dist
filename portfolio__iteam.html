@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/libs.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link href='//cdn.jsdelivr.net/devicons/1.8.0/css/devicons.min.css' rel='stylesheet'> </head>
+
+<body>
+    <nav id="menu" class="text-center"> <img src="img/logo.png" alt="Zcoder"> <a href="#about" rel="m_PageScroll2id">Про меня</a>
+        <a href="" rel="m_PageScroll2id"></a>
+        <a href="" rel="m_PageScroll2id"></a>
+        <a href="" rel="m_PageScroll2id"></a>
+        <a href="" rel="m_PageScroll2id"></a>
+        <a href="" rel="m_PageScroll2id"></a>
+    </nav>
+    <header class="fixed-header">
+        <button class="cmn-toggle-switch cmn-toggle-switch__htra toggle-button"> <span>toggle menu</span> </button>
+    </header>
+    <main id="panel">
+        <div class="stn-one">
+            <section class="head-stn">
+                <div class="mat_glass"></div>
+            </section>
+            <div class="head-stn__text wow fadeIn" data-wow-duration="1.5s">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <div class="head-stn__name_project">
+                                <h1>Компания "Люкс-Рем"</h1> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="stn-info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 col-xs-12 stn-info__text">
+                        <h2>Информация</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, nulla rem officiis, illum iure culpa odio pariatur minima magni temporibus tenetur laudantium eaque porro repudiandae eveniet ab est obcaecati nisi harum quisquam ipsa atque sunt minus explicabo? Expedita fuga, beatae nulla officiis quidem aliquam iste, illum labore temporibus iusto repudiandae, voluptates incidunt recusandae laborum dolorem eveniet. Sunt soluta, aut praesentium fugit omnis voluptas nemo quis quasi animi accusantium sed, illo provident veniam quisquam, magnam enim similique delectus pariatur laboriosam explicabo.</p> <a href=""><h3 class="text-center">Интересно как выглядит?  Жми тут)</h3></a> </div>
+                    <div class="col-md-5 col-xs-12">
+                        <div class="portfolio__tags">
+                            <h2>Что использовалось</h2>
+                            <div class="portfolio__tag">wordpress</div>
+                            <div class="portfolio__tag">bootstrap</div>
+                            <div class="portfolio__tag">jquery</div>
+                            <h2>Что делалось</h2>
+                            <div class="portfolio__tag">Верстка</div>
+                            <div class="portfolio__tag">дизайн</div>
+                            <div class="portfolio__tag">Посадка</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section id="contact">
+            <div class="container-fluid">
+                <h2 class="contacts name_stn">Контакты</h2>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 text-center">
+                        <h2>Вы можете связатся со мной с помощью:</h2>
+                        <div class="mail_m visible-xs"> <a href="ozadorozhnykh@gmail.com" type="email"><i class="fa fa-envelope-o"></i></a> </div>
+                        <div class="skype_m visible-xs"> <a href="skype:xzadmanx?chat" type="skype"><i class="fa fa-skype"></i></a> </div>
+                        <div class="phone_m visible-xs"> <a href="+380631637037" type="tel"><i class="fa fa-phone"></i></a> </div>
+                        <div class="mail hidden-xs"> <i class="fa fa-envelope-o"></i><a href="ozadorozhnykh@gmail.com" type="email">ozadorozhnykh@gmail.com</a> </div>
+                        <div class="skype hidden-xs"> <i class="fa fa-skype"></i> <a href="https://support.skype.com/ru/faq/FA3281/kak-iskat-i-dobavlyat-kontakty-v-skype">xzadmanx</a> </div>
+                        <div class="phone hidden-xs"> <i class="fa fa-phone"></i> <a href="+380631637037" type="tel">+380631637037</a> </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!--  Scripts  -->
+    <script src="js/libs.min.js"></script>
+    <script>
+        wow = new WOW({
+            boxClass: 'wow', // default
+            animateClass: 'animated', // default
+            offset: 100, // default
+            mobile: true, // default
+            live: true // default
+        })
+        wow.init();
+    </script>
+    <script src="js/common.js"></script>
+    <script>
+        // Slide-out
+        var slideout = new Slideout({
+            'panel': document.getElementById('panel')
+            , 'menu': document.getElementById('menu')
+            , 'padding': 256
+            , 'tolerance': 70
+            , 'side': 'right'
+        });
+        // Toggle button
+        document.querySelector('.toggle-button').addEventListener('click', function () {
+            slideout.toggle("1000");
+        });
+        // Fixed header
+        var fixed = document.querySelector('.fixed-header');
+        slideout.on('translate', function (translated) {
+            fixed.style.transform = 'translateX(' + translated + 'px)';
+        });
+        slideout.on('beforeopen', function () {
+            fixed.style.transition = 'transform 300ms ease';
+            fixed.style.transform = 'translateX(-256px)';
+        });
+        slideout.on('beforeclose', function () {
+            fixed.style.transition = 'transform 300ms ease';
+            fixed.style.transform = 'translateX(0px)';
+        });
+        slideout.on('open', function () {
+            fixed.style.transition = '';
+        });
+        slideout.on('close', function () {
+            fixed.style.transition = '';
+        });
+    </script>
+    <script>
+        (function () {
+            "use strict";
+            var toggles = document.querySelectorAll(".cmn-toggle-switch");
+            for (var i = toggles.length - 1; i >= 0; i--) {
+                var toggle = toggles[i];
+                toggleHandler(toggle);
+            };
+
+            function toggleHandler(toggle) {
+                toggle.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    (this.classList.contains("active") === true) ? this.classList.remove("active"): this.classList.add("active");
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>
